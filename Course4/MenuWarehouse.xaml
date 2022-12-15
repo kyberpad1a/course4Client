@@ -1,0 +1,33 @@
+﻿<Page x:Class="Course4.MenuWarehouse"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Course4"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="MenuWarehouse">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="114*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="520*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Меню отдела склада" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Button Name="btn_warehouses" Content="Склады" Grid.Row="3" Grid.Column="1" Click="btn_warehouses_Click"/>
+        <Button Name="btn_shippings" Content="Накладные" Grid.Row="5" Grid.Column="1" Click="btn_shippings_Click"/>
+
+    </Grid>
+</Page>

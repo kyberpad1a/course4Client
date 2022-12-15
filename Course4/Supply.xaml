@@ -1,0 +1,69 @@
+﻿<Page x:Class="Course4.Supply"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Course4"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Supply">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="112*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="326*"/>
+            <ColumnDefinition Width="358*"/>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="130*"/>
+
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Name="dg_supply" Grid.Row="5" Grid.ColumnSpan="13" Grid.RowSpan="8"  IsReadOnly="True" Grid.Column="1" SelectionChanged="dg_supply_SelectionChanged" />
+        <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="30" VerticalAlignment="Top"      Background="White"/>
+        <Button x:Name="btn_add" Grid.Column="5" Grid.Row="3"  Content="Добавить"  Click="btn_add_Click" />
+        <Button x:Name="btn_upd" Grid.Column="7" Grid.Row="3"  Content="Изменить"  Click="btn_upd_Click" Grid.ColumnSpan="2"  />
+        <Button x:Name="btn_del" Grid.Column="10" Grid.Row="3"  Content="Удалить"  Click="btn_del_Click"    Grid.ColumnSpan="2" />
+        <TextBox x:Name="tb_src" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"  TextChanged="tb_src_TextChanged"    />
+        <Label Content="Поиск:" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"  FontSize="18" />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Поставки" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
+        <Label Grid.Row="14" Grid.Column="2" Content="Количество товара" FontSize="18" Grid.ColumnSpan="2"/>
+        <TextBox Name="tb_goodquantity" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="14" Grid.Column="5" Content="Товар" FontSize="18" Grid.ColumnSpan="2"/>
+        <ComboBox Name="cb_good" Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="4"/>
+        <Label Grid.Row="16" Grid.Column="5" Content="Итого" FontSize="18" />
+        <TextBox Name="tb_total" Grid.Row="17" Grid.Column="5"  Grid.ColumnSpan="4"/>
+    </Grid>
+</Page>

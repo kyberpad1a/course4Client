@@ -1,0 +1,64 @@
+﻿<Page x:Class="Course4.GoodsClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Course4"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="GoodsClient">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="112*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="326*"/>
+            <ColumnDefinition Width="358*"/>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="130*"/>
+
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Name="dg_goodsclient" Grid.Row="5" Grid.ColumnSpan="13" Grid.RowSpan="8"  IsReadOnly="True" Grid.Column="1" />
+        <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="30" VerticalAlignment="Top"      Background="White"/>
+        <TextBox x:Name="tb_src" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"  TextChanged="tb_src_TextChanged"   />
+        <Label Content="Поиск:" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"  FontSize="18" />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Товары" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
+        <Button Name="btn_buy" Content="Добавить в корзину" Grid.Column="4" Grid.Row="16" Grid.ColumnSpan="3" FontSize="20" Click="btn_buy_Click"/>
+        <Button Name="btn_shoppingcart" Content="Корзина" Grid.Column="4" Grid.Row="18" Grid.ColumnSpan="3" FontSize="20" Click="btn_shoppingcart_Click"/>
+        <Label Content="Количество товара" Grid.Row="13" Grid.Column="8" Grid.ColumnSpan="3" FontSize="17"/>
+        <TextBox Name="tb_amount" Grid.Row="14" Grid.Column="8" Grid.ColumnSpan="3"/>
+    </Grid>
+</Page>

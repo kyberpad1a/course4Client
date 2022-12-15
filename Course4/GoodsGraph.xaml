@@ -1,0 +1,36 @@
+﻿<Page x:Class="Course4.GoodsGraph"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Course4"
+      xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GoodsGraph">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="99*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="427*"/>
+        </Grid.RowDefinitions>
+        <WindowsFormsHost  Grid.ColumnSpan="4" Margin="0,34,0,-0.4" Grid.RowSpan="2">
+            <charts:Chart x:Name="chart" >
+                <charts:Chart.Legends>
+                    <charts:Legend>
+
+                    </charts:Legend>
+                </charts:Chart.Legends>
+            </charts:Chart>
+        </WindowsFormsHost>
+
+        <Label FontSize="18" Content="Стоимость товаров"  VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Center" Margin="48.4,0,49.2,0.4" Height="34" Width="168"/>
+        <Button Grid.Column="3" Content="Назад" Name="btnBack" Click="btnBack_Click"/>
+    </Grid>
+</Page>
