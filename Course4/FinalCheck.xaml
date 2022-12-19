@@ -52,17 +52,17 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid Name="dg_check" Grid.Row="5" Grid.ColumnSpan="13" Grid.RowSpan="8"  IsReadOnly="True" Grid.Column="1" SelectionChanged="dg_check_SelectionChanged" />
-        <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="30" VerticalAlignment="Top"      Background="White"/>
+        <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="20" VerticalAlignment="Top"      Background="White"/>
         <Button x:Name="btn_add" Grid.Column="5" Grid.Row="3"  Content="Добавить"  Click="btn_add_Click" />
         <Button x:Name="btn_upd" Grid.Column="7" Grid.Row="3"  Content="Изменить"  Click="btn_upd_Click" Grid.ColumnSpan="2"  />
         <Button x:Name="btn_del" Grid.Column="10" Grid.Row="3"  Content="Удалить"  Click="btn_del_Click"     />
         <Button x:Name="btn_recoveryLogicalDelete" Grid.Column="12" Grid.Row="3"   Content="Восстановить"  Click="btn_recoveryLogicalDelete_Click"     />
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Проверки качества" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
-        <Label Grid.Row="14" Grid.Column="2" Content="Дата проверки" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Проверки качества" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
+        <Label Grid.Row="14" Grid.Column="2" Content="Дата проверки" FontSize="12" Grid.ColumnSpan="2"/>
         <DatePicker Name="dp_checkdate" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Label Grid.Row="16" Grid.Column="2" Content="Товар" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="16" Grid.Column="2" Content="Товар" FontSize="12" Grid.ColumnSpan="2"/>
         <ComboBox Name="cb_good" Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Label Grid.Row="14" Grid.Column="5" Content="Статус" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="14" Grid.Column="5" Content="Статус" FontSize="12" Grid.ColumnSpan="2"/>
         <ComboBox Name="cb_status" Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="4"/>
     </Grid>
 </Page>

@@ -30,7 +30,11 @@ namespace Course4
             connect = new NpgsqlConnection(connection.constring);
         }
         public NpgsqlConnection connect { get; }
-
+        /// <summary>
+        /// Шифрование
+        /// </summary>
+        /// <param name="decrypted">Строка для шифрования</param>
+        /// <returns>Зашифрованная строка</returns>
         public string Encrypt(string decrypted)
         {
             byte[] data = UTF8Encoding.UTF8.GetBytes(decrypted);
@@ -42,7 +46,11 @@ namespace Course4
             byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
             return Convert.ToBase64String(result);
         }
-
+        /// <summary>
+        /// Регистрация
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void tb_registration_Click(object sender, RoutedEventArgs e)
         {
             if (IsValidPassword(tb_password.Password) != true)
@@ -66,11 +74,20 @@ namespace Course4
             }
             Mw.MainFrame.NavigationService.Navigate(new Authorization());
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Authorization());
         }
+        /// <summary>
+        /// Проверка пароля
+        /// </summary>
+        /// <param name="pswd">пароль</param>
+        /// <returns>результат проверки</returns>
         public static bool IsValidPassword(string pswd)
         {
 

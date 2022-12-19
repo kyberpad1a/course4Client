@@ -28,22 +28,38 @@ namespace Course4
             id = iD_EMPLOYEE;
         }
 
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_certificates_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Certificate(id));
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_goods_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new GoodsStaff(id));
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_supplies_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Supply(id));
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Authorization());

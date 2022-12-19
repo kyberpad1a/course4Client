@@ -51,7 +51,11 @@ namespace Course4
             dg_goodsclient.ItemsSource = datatbl.DefaultView;
             connect.Close();
         }
-
+        /// <summary>
+        /// Добавление в корзину
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_buy_Click(object sender, RoutedEventArgs e)
         {
             connect.Open();
@@ -89,12 +93,20 @@ namespace Course4
             }
             connect.Close();
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_shoppingcart_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new ShoppingCart(ID, ORDER_ID));
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Authorization());

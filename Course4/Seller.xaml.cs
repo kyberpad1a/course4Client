@@ -40,6 +40,9 @@ namespace Course4
             connect.Close();
         }
         public NpgsqlConnection connect { get; }
+        /// <summary>
+        /// Обновление датагрида
+        /// </summary>
         public void Refresh()
         {
 
@@ -52,7 +55,11 @@ namespace Course4
             connect.Close();
 
         }
-
+        /// <summary>
+        /// Подтверждение заказа
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_confirm_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_orders.SelectedItem;
@@ -80,7 +87,11 @@ namespace Course4
 
             
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Authorization());

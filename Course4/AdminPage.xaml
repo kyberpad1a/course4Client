@@ -52,23 +52,23 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid Name="dg_personel" Grid.Row="5" Grid.ColumnSpan="13" Grid.RowSpan="8"  IsReadOnly="True" Grid.Column="1" SelectionChanged="dg_personel_SelectionChanged" />
-        <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="30" VerticalAlignment="Top"      Background="White"/>
+        <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="15" VerticalAlignment="Top"      Background="White"/>
         <Button x:Name="btn_add" Grid.Column="5" Grid.Row="3"  Content="Добавить"  Click="btn_add_Click" />
         <Button x:Name="btn_upd" Grid.Column="7" Grid.Row="3"  Content="Изменить"  Click="btn_upd_Click" Grid.ColumnSpan="2"  />
         <Button x:Name="btn_del" Grid.Column="10" Grid.Row="3"  Content="Удалить"  Click="btn_del_Click"     />
-        <Button Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Управление БД" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Name="btnDataBase" Click="btnDataBase_Click"/>
-        <Label Grid.Row="14" Grid.Column="2" Content="Фамилия" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Управление БД" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <Label Grid.Row="14" Grid.Column="2" Content="Фамилия" FontSize="12" Grid.ColumnSpan="2"/>
         <TextBox Name="tb_surname" Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Label Grid.Row="16" Grid.Column="2" Content="Имя" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="16" Grid.Column="2" Content="Имя" FontSize="12" Grid.ColumnSpan="2"/>
         <TextBox Name="tb_name" Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Label Content="Отчество" FontSize="18" Grid.Row="18" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Отчество" FontSize="12" Grid.Row="18" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox Name="tb_patronymic" Grid.Row="19" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Label Grid.Row="14" Grid.Column="5" Content="Логин" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Grid.Row="14" Grid.Column="5" Content="Логин" FontSize="12" Grid.ColumnSpan="2"/>
         <TextBox Name="tb_login" Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="4"/>
-        <Label Content="Пароль" FontSize="18" Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="16"/>
+        <Label Content="Пароль" FontSize="12" Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="16"/>
         <PasswordBox Name="tb_password" Grid.Row="17" Grid.Column="5" Grid.ColumnSpan="4"/>
-        <Label Content="Должность" Grid.Row="18" Grid.Column="5" Grid.ColumnSpan="4" FontSize="18"/>
+        <Label Content="Должность" Grid.Row="18" Grid.Column="5" Grid.ColumnSpan="4" FontSize="12"/>
         <ComboBox Name="cb_job" Grid.Column="5" Grid.ColumnSpan="4" Grid.Row="19"/>
-        <Button Name="btn_settings" Content="Расширенные настройки" Grid.Column="12" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Button Name="btn_settings" Content="Расширенные настройки" Grid.Column="12" Grid.Row="3" Grid.ColumnSpan="2" Click="btnDataBase_Click"/>
     </Grid>
 </Page>

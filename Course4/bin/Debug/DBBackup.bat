@@ -8,6 +8,6 @@ cd 13
 
 cd bin
 
-pg_dump.exe --host 192.168.212.225 --port 5432 --username postgres --format custom --blobs --verbose --file "C:\aaa.backup" "Course4"
+pg_dump.exe --host 192.168.73.225 --port 5432 --username postgres --format custom --blobs --verbose --file "C:\1234.backup" "Course4"
 
 

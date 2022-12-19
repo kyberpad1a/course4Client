@@ -26,6 +26,9 @@ namespace Course4
         List<string> axisYData = new List<string>();
         ConString connection = new ConString();
         public NpgsqlConnection connect { get; }
+        /// <summary>
+        /// Отрисовка графа
+        /// </summary>
         public GoodsGraph()
         {
             InitializeComponent();
@@ -42,7 +45,7 @@ namespace Course4
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                axisYData.Add(dataReader["good_price"].ToString());
+                axisYData.Add(Convert.ToDouble(dataReader["good_price"]).ToString());
             }
             dataReader.Close();
             connect.Close();
@@ -58,10 +61,14 @@ namespace Course4
             chart.Series["Ценообразование"].IsValueShownAsLabel = true;
             chart.Series["Ценообразование"].Points.DataBindXY(axisXData, axisYData);
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            Mw.MainFrame.NavigationService.GoBack(); //Фокусы
+            Mw.MainFrame.NavigationService.GoBack(); 
         }
     }
 }

@@ -31,16 +31,16 @@
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Регистрация клиента" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="50" Grid.RowSpan="2"/>
-        <Label Content="Фамилия" Grid.Row="3" Grid.Column="1" FontSize="20" Grid.ColumnSpan="2"/>
-        <TextBox Name="tb_surname" Grid.Row="4" Grid.Column="1" FontSize="20" Grid.ColumnSpan="2"/>
-        <Label Content="Имя" Grid.Row="5" Grid.Column="1" FontSize="20" Grid.ColumnSpan="2"/>
+        <Label Content="Регистрация клиента" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="20" Grid.RowSpan="2"/>
+        <Label Content="Фамилия" Grid.Row="3" Grid.Column="1" FontSize="12" Grid.ColumnSpan="2"/>
+        <TextBox Name="tb_surname" Grid.Row="4" Grid.Column="1" FontSize="12" Grid.ColumnSpan="2"/>
+        <Label Content="Имя" Grid.Row="5" Grid.Column="1" FontSize="12" Grid.ColumnSpan="2"/>
         <TextBox Name="tb_name" Grid.Row="6" Grid.Column="1" FontSize="20" Grid.ColumnSpan="2"/>
-        <Label Content="Отчество" Grid.Row="7" Grid.Column="1" FontSize="20"  Grid.ColumnSpan="2"/>
+        <Label Content="Отчество" Grid.Row="7" Grid.Column="1" FontSize="12"  Grid.ColumnSpan="2"/>
         <TextBox Name="tb_patronymic" Grid.Row="8" Grid.Column="1" FontSize="20" Grid.ColumnSpan="2"/>
-        <Label Content="Логин" Grid.Row="3" Grid.Column="4" FontSize="20" />
+        <Label Content="Логин" Grid.Row="3" Grid.Column="4" FontSize="12" />
         <TextBox Name="tb_login" Grid.Row="4" Grid.Column="4" FontSize="20"/>
-        <Label Content="Пароль" Grid.Row="5" Grid.Column="4" FontSize="20" />
+        <Label Content="Пароль" Grid.Row="5" Grid.Column="4" FontSize="12" />
         <PasswordBox Name="tb_password" Grid.Row="6" Grid.Column="4" FontSize="20"/>
         <Button Name="tb_registration" Grid.Column="3" Grid.Row="9" Content="Регистрация" FontSize="20" Click="tb_registration_Click"/>
         <Button x:Name="btn_Back" Grid.Column="1" Grid.Row="1" Content="🡸" Background="White" Click="btn_Back_Click"/>

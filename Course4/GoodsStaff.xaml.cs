@@ -39,6 +39,9 @@ namespace Course4
             ID = id;
         }
         public NpgsqlConnection connect { get; }
+        /// <summary>
+        /// Обновление датагрида
+        /// </summary>
         public void Refresh()
         {
 
@@ -51,6 +54,9 @@ namespace Course4
             connect.Close();
 
         }
+        /// <summary>
+        /// Привязка комбобоксов
+        /// </summary>
         private void BindComboBox()
         {
 
@@ -66,7 +72,11 @@ namespace Course4
             connect.Close();
 
         }
-
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             if (tb_goodname.Text != null && tb_goodmaterial.Text !=null && tb_price.Text !=null && cb_certificate.SelectedValue!=null)
@@ -92,7 +102,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// обновление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_upd_Click(object sender, RoutedEventArgs e)
         {
             
@@ -124,7 +138,11 @@ namespace Course4
                 }
             }
         }
-
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_goodsstaff.SelectedItem;
@@ -154,7 +172,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// Заполнение полей
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void dg_goodsstaff_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dg_goodsstaff.SelectedItem == null) return;
@@ -165,7 +187,11 @@ namespace Course4
             cb_certificate.Text = row["Сертифицирован"].ToString();
 
         }
-
+        /// <summary>
+        /// Поиск
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void tb_src_TextChanged(object sender, TextChangedEventArgs e)
         {
             connect.Open();
@@ -175,16 +201,28 @@ namespace Course4
             dg_goodsstaff.ItemsSource = datatbl.DefaultView;
             connect.Close();
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
          Mw.MainFrame.NavigationService.Navigate(new MenuSupply(ID));
         }
-
+        /// <summary>
+        /// Экспорт
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_export_Click(object sender, RoutedEventArgs e)
         {
             GenerateExcel(dt);
         }
+        /// <summary>
+        /// Экспорт
+        /// </summary>
+        /// <param name="DtIN">Дататэйбл с данными</param>
         private void GenerateExcel(DataTable DtIN)
         {
             try
@@ -213,13 +251,19 @@ namespace Course4
                 }
                 cellRange = workSheet.Range[workSheet.Cells[1, 1], workSheet.Cells[rowcount, tempDt.Columns.Count]];
                 cellRange.EntireColumn.AutoFit();
+                excel.Visible = true;
+                excel.UserControl = true;
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_Graph_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new GoodsGraph());

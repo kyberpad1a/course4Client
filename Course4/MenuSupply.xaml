@@ -27,7 +27,7 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Меню отдела поставок" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Label Content="Меню отдела поставок" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <Button Name="btn_certificates" Content="Сертификаты" Grid.Row="3" Grid.Column="1" Click="btn_certificates_Click"/>
         <Button Name="btn_goods" Content="Товары" Grid.Row="5" Grid.Column="1" Click="btn_goods_Click"/>
         <Button Name="btn_supplies" Content="Поставки" Grid.Row="7" Grid.Column="1" Click="btn_supplies_Click"/>

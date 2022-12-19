@@ -38,8 +38,8 @@ namespace Course4
         /// <summary>
         /// Хэширование
         /// </summary>
-        /// <param name="decrypted"></param>
-        /// <returns></returns>
+        /// <param name="decrypted">Строка для шифрования</param>
+        /// <returns>Шифрованная строка</returns>
         public string Encrypt(string decrypted)
         {
             byte[] data = UTF8Encoding.UTF8.GetBytes(decrypted);
@@ -51,7 +51,9 @@ namespace Course4
             byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
             return Convert.ToBase64String(result);
         }
-
+        /// <summary>
+        /// Обновление датагрида
+        /// </summary>
         public void Refresh()
         {
             connect.Close();
@@ -64,6 +66,9 @@ namespace Course4
             connect.Close();
 
         }
+        /// <summary>
+        /// Привязка комбобоксов
+        /// </summary>
         private void BindComboBox()
         {
 
@@ -78,7 +83,11 @@ namespace Course4
             connect.Close();
 
         }
-
+        /// <summary>
+        /// Заполнение полей
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void dg_personel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dg_personel.SelectedItem == null) return;
@@ -94,10 +103,10 @@ namespace Course4
         }
 
         /// <summary>
-        /// try catch!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        /// Добавление
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             if (cb_job.SelectedValue != null && tb_surname.Text != null && tb_name.Text != null && tb_patronymic.Text != null && tb_login.Text != null && tb_password.Password !=null)
@@ -122,7 +131,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// обновление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_upd_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_personel.SelectedItem;
@@ -154,7 +167,11 @@ namespace Course4
             }
             }
         }
-
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_personel.SelectedItem;
@@ -180,12 +197,20 @@ namespace Course4
 
         }
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Authorization());
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnDataBase_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new DataBaseController());

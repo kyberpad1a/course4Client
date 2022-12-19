@@ -27,15 +27,28 @@ namespace Course4
             InitializeComponent();
             id = iD_EMPLOYEE;
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_warehouses_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Storage(id));
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_shippings_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Shipping(id));
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Mw.MainFrame.NavigationService.Navigate(new Authorization());
         }
     }
 }

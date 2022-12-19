@@ -54,11 +54,11 @@
         <DataGrid Name="dg_goodsclient" Grid.Row="5" Grid.ColumnSpan="13" Grid.RowSpan="8"  IsReadOnly="True" Grid.Column="1" />
         <Button x:Name="btn_back" Grid.Column="1" Grid.Row="3"  Content="🡸"  Click="btn_back_Click" FontSize="30" VerticalAlignment="Top"      Background="White"/>
         <TextBox x:Name="tb_src" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2"  TextChanged="tb_src_TextChanged"   />
-        <Label Content="Поиск:" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"  FontSize="18" />
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Товары" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
+        <Label Content="Поиск:" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right"  FontSize="12" />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" Content="Товары" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
         <Button Name="btn_buy" Content="Добавить в корзину" Grid.Column="4" Grid.Row="16" Grid.ColumnSpan="3" FontSize="20" Click="btn_buy_Click"/>
         <Button Name="btn_shoppingcart" Content="Корзина" Grid.Column="4" Grid.Row="18" Grid.ColumnSpan="3" FontSize="20" Click="btn_shoppingcart_Click"/>
-        <Label Content="Количество товара" Grid.Row="13" Grid.Column="8" Grid.ColumnSpan="3" FontSize="17"/>
+        <Label Content="Количество товара" Grid.Row="13" Grid.Column="8" Grid.ColumnSpan="3" FontSize="12"/>
         <TextBox Name="tb_amount" Grid.Row="14" Grid.Column="8" Grid.ColumnSpan="3"/>
     </Grid>
 </Page>

@@ -25,10 +25,6 @@ namespace Course4
         ConString connection = new ConString();
         MainWindow Mw = System.Windows.Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
         DataTable dt = new DataTable();
-        Microsoft.Office.Interop.Excel.Application excel;
-        Microsoft.Office.Interop.Excel.Workbook workBook;
-        Microsoft.Office.Interop.Excel.Worksheet workSheet;
-        Microsoft.Office.Interop.Excel.Range cellRange;
         int ID;
         public NpgsqlConnection connect { get; }
 
@@ -40,6 +36,9 @@ namespace Course4
             BindComboBox();
             ID = id;
         }
+        /// <summary>
+        /// Обновление датагрида
+        /// </summary>
         public void Refresh()
         {
             connect.Open();
@@ -51,6 +50,9 @@ namespace Course4
             connect.Close();
 
         }
+        /// <summary>
+        /// Привязка комбобоксов
+        /// </summary>
         private void BindComboBox()
         {
 
@@ -71,7 +73,11 @@ namespace Course4
             connect.Close();
 
         }
-
+        /// <summary>
+        /// Заполнение полей
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void dg_shipping_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dg_shipping.SelectedItem == null) return;
@@ -80,7 +86,11 @@ namespace Course4
             cb_address.Text = row["Адрес склада"].ToString();
             cb_supply.Text = row["Код поставки"].ToString();
         }
-
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             if (cb_address.SelectedValue != null && dp_shippingdate.SelectedDate != null && cb_supply.Text != null)
@@ -106,7 +116,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// обновление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_upd_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_shipping.SelectedItem;
@@ -134,7 +148,11 @@ namespace Course4
                 }
             }
         }
-
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_shipping.SelectedItem;
@@ -163,7 +181,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.GoBack();

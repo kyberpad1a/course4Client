@@ -35,7 +35,11 @@ namespace Course4
             BindComboBox();
             ID = id;
         }
-
+        /// <summary>
+        /// обновление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         public void Refresh()
         {
 
@@ -48,6 +52,9 @@ namespace Course4
             connect.Close();
 
         }
+        /// <summary>
+        /// Привязка комбобоксов
+        /// </summary>
         private void BindComboBox()
         {
 
@@ -66,6 +73,11 @@ namespace Course4
 
         public NpgsqlConnection connect { get; }
 
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             if (cb_good.SelectedValue != null && tb_total.Text != null && tb_goodquantity.Text != null)
@@ -81,7 +93,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// обновление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_upd_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_supply.SelectedItem;
@@ -99,7 +115,11 @@ namespace Course4
                 }
             }
         }
-
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_supply.SelectedItem;
@@ -118,7 +138,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// Поиск
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void tb_src_TextChanged(object sender, TextChangedEventArgs e)
         {
             connect.Open();
@@ -129,12 +153,20 @@ namespace Course4
             dg_supply.ItemsSource = datatbl.DefaultView;
             connect.Close();
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new MenuSupply(ID));
         }
-
+        /// <summary>
+        /// Заполнение полей
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void dg_supply_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dg_supply.SelectedItem == null) return;

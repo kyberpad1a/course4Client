@@ -35,7 +35,9 @@ namespace Course4
             ID = id;
         }
         public NpgsqlConnection connect { get; }
-
+        /// <summary>
+        /// Обновление датагрида
+        /// </summary>
         public void Refresh()
         {
 
@@ -48,7 +50,11 @@ namespace Course4
             connect.Close();
 
         }
-
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             if (tb_bureau.Text != null)
@@ -74,7 +80,11 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// обновление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_upd_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_certificates.SelectedItem;
@@ -102,7 +112,11 @@ namespace Course4
                 }
             }
         }
-
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_del_Click(object sender, RoutedEventArgs e)
         {
             DataRowView row = (DataRowView)dg_certificates.SelectedItem;
@@ -132,14 +146,22 @@ namespace Course4
 
             }
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
 
                 Mw.MainFrame.NavigationService.Navigate(new MenuSupply(ID));
             
         }
-
+        /// <summary>
+        /// Поиск
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void tb_src_TextChanged(object sender, TextChangedEventArgs e)
         {
             connect.Open();
@@ -150,7 +172,11 @@ namespace Course4
             dg_certificates.ItemsSource = datatbl.DefaultView;
             connect.Close();
         }
-
+        /// <summary>
+        /// Заполнение полей
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void dg_certificates_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dg_certificates.SelectedItem == null) return;

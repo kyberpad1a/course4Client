@@ -37,24 +37,30 @@ namespace Course4
             NpgsqlCommand command = new NpgsqlCommand($"select ID_OrderGood as \"Код товара\", Good_Name as \"Название товара\", Good_Price as \"Цена, руб\", OrderGood_Amount as \"Количество\" FROM OrderGood join Good on Good_ID=ID_Good join Orderr on Order_ID=ID_Orderr where Client_ID={ID} and payment_ready = false", connect);
             dt.Load(command.ExecuteReader());
             dg_shoppingcart.ItemsSource = dt.DefaultView;
-            command = new NpgsqlCommand($"select Good_Price FROM OrderGood join Good on Good_ID=ID_Good join Orderr on Order_ID=ID_Orderr where Client_ID={ID} and payment_ready = false", connect);
+            command = new NpgsqlCommand($"select Good_Price, OrderGood_Amount FROM OrderGood join Good on Good_ID=ID_Good join Orderr on Order_ID=ID_Orderr where Client_ID={ID} and payment_ready = false", connect);
             NpgsqlDataReader dataReader = command.ExecuteReader();
             double amount = 0;
             while (dataReader.Read())
             {
-                amount = Convert.ToDouble(dataReader["good_price"].ToString());
+                amount += Convert.ToDouble(dataReader["good_price"].ToString()) * Convert.ToDouble(dataReader["ordergood_amount"].ToString());
             }
             tb_total.Text = amount.ToString();
             dataReader.Close();
             connect.Close();
         }
         public NpgsqlConnection connect { get; }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_back_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new GoodsClient(ID));
         }
-
+        /// <summary>
+        /// Обновление датагрида
+        /// </summary>
         public void Refresh()
         {
 
@@ -63,19 +69,23 @@ namespace Course4
             dt = new DataTable();
             dt.Load(command.ExecuteReader());
             dg_shoppingcart.ItemsSource = dt.DefaultView;
-            command = new NpgsqlCommand($"select Good_Price FROM OrderGood join Good on Good_ID=ID_Good join Orderr on Order_ID=ID_Orderr where Client_ID={ID} and payment_ready = false", connect);
+            command = new NpgsqlCommand($"select Good_Price, OrderGood_Amount FROM OrderGood join Good on Good_ID=ID_Good join Orderr on Order_ID=ID_Orderr where Client_ID={ID} and payment_ready = false", connect);
             NpgsqlDataReader dataReader = command.ExecuteReader();
             double amount = 0;
             while (dataReader.Read())
             {
-                amount = Convert.ToDouble(dataReader["good_price"].ToString());
+                amount += Convert.ToDouble(dataReader["good_price"].ToString()) * Convert.ToDouble(dataReader["ordergood_amount"].ToString());
             }
             tb_total.Text = amount.ToString();
             dataReader.Close();
             connect.Close();
 
         }
-
+        /// <summary>
+        /// Удаление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_delete_Click(object sender, RoutedEventArgs e)
         {
            
@@ -96,6 +106,11 @@ namespace Course4
         }
 
         List<string> IDGoods = new List<string>();
+        /// <summary>
+        /// Покупка
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_buy_Click(object sender, RoutedEventArgs e)
         {
           

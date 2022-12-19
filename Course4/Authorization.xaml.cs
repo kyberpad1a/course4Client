@@ -32,7 +32,7 @@ namespace Course4
         {
             InitializeComponent();
             connect = new NpgsqlConnection(connection.constring);
-            //MessageBox.Show(Encrypt("Admin"));
+
 
         }
         public NpgsqlConnection connect { get; }
@@ -54,7 +54,11 @@ namespace Course4
             return Convert.ToBase64String(result);
         }
 
-
+        /// <summary>
+        /// Авторизация
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_Auth_Click(object sender, RoutedEventArgs e)
         {
             
@@ -125,7 +129,11 @@ namespace Course4
                 
             }
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btn_Reg_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.Navigate(new Registration());

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,9 +25,14 @@ namespace Course4
     public partial class DataBaseController : Page
     {
         MainWindow Mw = System.Windows.Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+
+            ConString connection = new ConString();
+        public NpgsqlConnection connect { get; }
+
         public DataBaseController()
         {
             InitializeComponent();
+            connect = new NpgsqlConnection(connection.constring);
             if (DateTime.Now.ToString("dd") == "12")
             {
                 Backup((System.IO.Directory.GetCurrentDirectory() + @"\BackupFiles").Replace(@"\bin", "").Replace(@"\Debug", "") + $@"\{DateTime.Now.ToString("d").Replace(".", "")}.backup");
@@ -38,13 +44,18 @@ namespace Course4
         }
 
         string strPG_dumpPath = "SET PGPASSWORD=3785\r\n\r\ncd /D C:\\Program Files\r\n\r\ncd PostgreSQL\r\n\r\ncd 13\r\n\r\ncd bin\r\n\r\n";
-        string strServer = "192.168.212.225";
+        string strServer = "192.168.73.225";
         string strPort = "5432";
         string strDatabaseName = "Course4";
+        /// <summary>
+        /// Создание файла с резервной копией бд
+        /// </summary>
+        /// <param name="pathSave">Путь для сохранения</param>
         public void Backup(string pathSave)
         {
             try
             {
+                strDatabaseName = "Course4";
                 StreamWriter sw = new StreamWriter("DBBackup.bat");
                 // Do not change lines / spaces b/w words.
                 StringBuilder strSB = new StringBuilder(strPG_dumpPath);
@@ -69,7 +80,11 @@ namespace Course4
             catch
             { }
         }
-
+        /// <summary>
+        /// Создание бэкапа
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnRezCopy_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog()
@@ -84,7 +99,11 @@ namespace Course4
 
 
         }
-
+        /// <summary>
+        /// Восстановление
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnBackup_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog()
@@ -97,17 +116,35 @@ namespace Course4
                 Restore(dialog.FileName);
             }
         }
-
+        /// <summary>
+        /// Откат данных
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnRollback_Click(object sender, RoutedEventArgs e)
         {
             Restore((System.IO.Directory.GetCurrentDirectory() + @"\BackupFiles").Replace(@"\bin", "").Replace(@"\Debug", "") + @"\" + cbDateRollback.SelectedItem.ToString().Replace(".", "") + ".backup");
         }
-
+        /// <summary>
+        /// Восстановление базы данных
+        /// </summary>
+        /// <param name="pathFile">Путь до бэкапа</param>
         public void Restore(string pathFile)
         {
             strDatabaseName = "Course4Restore";
+            NpgsqlCommand command = new NpgsqlCommand();
+            connect.Open();
             try
             {
+                if (new NpgsqlCommand("SELECT 1 as count FROM pg_database WHERE datname='Course4Restore'", connect).ExecuteScalar().ToString() == "1")
+                {
+                    command = new NpgsqlCommand("DROP DATABASE \"Course4Restore\";", connect);
+                    command.ExecuteNonQuery();
+                }
+                command = new NpgsqlCommand("Create DATABASE \"Course4Restore\";", connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+
                 if (strDatabaseName != "")
                 {
                     if (pathFile != "")
@@ -118,7 +155,7 @@ namespace Course4
                         if (strSB.Length != 0)
                         {
                             strSB.Append("pg_restore.exe --host " + strServer +
-                               " --port " + strPort + " --username postgres --dbname");
+                            " --port " + strPort + " --username postgres --dbname");
                             strSB.Append(" \"" + strDatabaseName + "\"");
                             strSB.Append(" --verbose ");
                             strSB.Append("\"" + pathFile + "\"");
@@ -139,10 +176,13 @@ namespace Course4
                     MessageBox.Show("Please enter the Database name to Restore!");
                 }
             }
-            catch
-            { }
+            catch { MessageBox.Show("База данных занята другой программой"); connect.Close(); }
         }
-
+        /// <summary>
+        /// Переход
+        /// </summary>
+        /// <param name="sender">ссылка на элемент управления/объект, вызвавший событие</param>
+        /// <param name="e">экземпляр класса для классов, содержащих данные событий, и предоставляет данные событий</param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Mw.MainFrame.NavigationService.GoBack(); //Фокусы

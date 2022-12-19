@@ -39,7 +39,7 @@
         <PasswordBox Name="tb_password" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" FontSize="30"     />
         <Button Name="btn_Auth" Grid.Column="1" Grid.Row="7" Content="Авторизация" FontSize="25" VerticalAlignment="Center" Click="btn_Auth_Click" />
         <Button Name="btn_Reg" Grid.Column="3" Grid.Row="7" Content="Регистрация" FontSize="25" VerticalAlignment="Center" Click="btn_Reg_Click" />
-        <CheckBox Content="Войти как сотрудник" IsChecked="False" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="chkbox_personel" Grid.ColumnSpan="2">
+        <CheckBox Content="Сотрудник?" IsChecked="False" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="chkbox_personel" Grid.ColumnSpan="2">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>

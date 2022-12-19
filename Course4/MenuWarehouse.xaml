@@ -25,9 +25,9 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Меню отдела склада" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Label Content="Меню отдела склада" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <Button Name="btn_warehouses" Content="Склады" Grid.Row="3" Grid.Column="1" Click="btn_warehouses_Click"/>
         <Button Name="btn_shippings" Content="Накладные" Grid.Row="5" Grid.Column="1" Click="btn_shippings_Click"/>
-
+        <Button Name="btnBack" Content="Выйти" Grid.Row="7" Grid.Column="1" Click="btnBack_Click"/>
     </Grid>
 </Page>
